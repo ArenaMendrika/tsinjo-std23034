@@ -1,3 +1,5 @@
+package com.hei.school.endpoint.rest.controller;
+
 import com.hei.school.model.Donation;
 import com.hei.school.model.Donor;
 import com.hei.school.model.Payment;
