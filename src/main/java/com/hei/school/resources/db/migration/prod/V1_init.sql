@@ -32,11 +32,9 @@ CREATE TABLE help (
                       description TEXT
 );
 
--- Insérer un donneur
 INSERT INTO donor (email, full_name)
 VALUES ('sarah.rakoto@donor.org', 'Sarah Rakotomalala');
 
--- Insérer un paiement pour un don
 INSERT INTO payment (
     psp_payment_id,
     psp_type,

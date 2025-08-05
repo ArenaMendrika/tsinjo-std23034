@@ -8,13 +8,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Donation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @ManyToOne
-    private Donor donor;
+  @ManyToOne private Donor donor;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Payment payment;
+  @OneToOne(cascade = CascadeType.ALL)
+  private Payment payment;
 }
