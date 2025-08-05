@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tsinjo</title>
+</head>
+<body>
+<h1>Dons et Aides</h1>
+
+<form method="post" action="/donations">
+    <input type="text" name="donorFullName" placeholder="Nom complet" required/>
+    <input type="email" name="donorEmail" placeholder="Email" required/>
+    <input type="text" name="pspType" placeholder="Type de paiement" required/>
+    <input type="text" name="pspPaymentId" placeholder="ID de paiement" required/>
+    <input type="number" name="amount" placeholder="Montant" required/>
+    <button type="submit">Faire un don</button>
+</form>
+
+<h2>Liste des Dons</h2>
+<ul>
+    <li th:each="don : ${donations}">
+        + <span th:text="${don.payment.amount}">0</span>Ar (<span th:text="${don.payment.status}">en vérification</span>,
+        <span th:text="${don.payment.pspType}">Orange Money</span>).
+        <span th:text="${#temporals.format(don.payment.creationDate, 'dd/MM/yyyy')}">11/08/2025</span>.
+        Par <span th:text="${don.donor.fullName}">Nom</span>
+        (<a th:href="'mailto:' + ${don.donor.email}" th:text="${don.donor.email}">email</a>).
+    </li>
+</ul>
+
+<h2>Liste des Aides</h2>
+<ul>
+    <li th:each="help : ${helps}">
+        <span th:text="${help.beneficiary.fullName}">Nom</span> a reçu
+        <span th:text="${help.payment.amount}">0</span> Ariary pour
+        <span th:text="${help.description}">Description</span>
+    </li>
+</ul>
+</body>
+</html>
