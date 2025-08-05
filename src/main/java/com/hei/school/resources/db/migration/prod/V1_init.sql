@@ -51,11 +51,9 @@ INSERT INTO payment (
              '2025-09-01 08:10:00'
          );
 
--- Lier le don avec le donneur et le paiement
 INSERT INTO donation (donor_id, payment_id)
 VALUES (1, 1);
 
--- Insérer un bénéficiaire
 INSERT INTO beneficiary (email, full_name)
 VALUES ('rina.malagasy@helpme.mg', 'Rina Malagasy');
 
